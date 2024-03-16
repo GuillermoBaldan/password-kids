@@ -18,10 +18,13 @@ document.getElementById("passwordForm").addEventListener("submit", function(even
 
     // Comprobar si la contraseña ingresada está en la lista de códigos válidos
     if (codigosValidos.includes(password)) {
-        // Si la contraseña es válida, redirigir a la página bienvenido.html
-        window.location.href = "bienvenido.html";
+        // Redirigir a animation.html si la contraseña es válida
+        document.cookie = "denegado=autorizado";
+        window.location.href = "animation.html";
     } else {
-        // Si la contraseña no es válida, mostrar un mensaje de error (puedes modificar esto según tus necesidades)
-        alert("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
+        // Crear una cookie llamada "denegado" con valor "denegado"
+        document.cookie = "denegado=denegado";
+        // Redirigir a animation.html en cualquier caso
+        window.location.href = "animation.html";
     }
 });
